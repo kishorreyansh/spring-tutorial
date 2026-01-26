@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:c="http://www.springframework.org/schema/c"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  	<bean class="com.springcore.constructorinjection.Certificate" name="cert">
+  		<constructor-arg value="AWS" />
+  	</bean>
+  	
+  	<bean class="com.springcore.constructorinjection.Certificate" name="cert1" c:certificateName="AWS Developer" />
+  	
+  	<bean class="com.springcore.constructorinjection.Certificate" name="cert2" c:certificateName="AWS Architect" />
+  
+	<bean class="com.springcore.constructorinjection.Person" name="person">
+		<constructor-arg>
+			<value>Reyansh</value>
+		</constructor-arg>
+		
+		<constructor-arg value="17" type="int" />
+		<constructor-arg ref="cert" />
+	</bean>
+	
+	<bean class="com.springcore.constructorinjection.Person" name="person1">
+		<constructor-arg>
+			<value>Ridhansh</value>
+		</constructor-arg>
+		
+		<constructor-arg value="17" type="int" />
+		<constructor-arg ref="cert1" />
+	</bean>
+	
+	<bean class="com.springcore.constructorinjection.Person" name="person2" c:_0="Kishor" c:_1="23" c:_2-ref="cert2" />
+	
+	<bean class="com.springcore.constructorinjection.Addition" name="add">
+		<constructor-arg value="17" type="int" index="1"/>
+		<constructor-arg value="23" type="int" index="0"/>
+	</bean>
+		
+</beans>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:p="http://www.springframework.org/schema/p"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  https://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/util
+  https://www.springframework.org/schema/util/spring-util.xsd
+  ">
+  
+  <util:list list-class="java.util.LinkedList" id="mycricketers">
+  	<value>Kohli</value>
+  	<value>Dhoni</value>
+  	<value>Rohit</value>
+  	<value>Abhishek</value>
+  </util:list>
+  
+  <util:set set-class="java.util.TreeSet" id="myscores">
+  	<value>183</value>
+  	<value>186</value>
+  	<value>264</value>
+  	<value>137</value>
+  </util:set>
+  
+  <util:map map-class="java.util.HashMap" id="myteams">
+  	<entry key="RCB" value="Kohli" />
+  	<entry key="CSK" value="Dhoni" />
+  	<entry key="MI" value="Rohit" />
+  	<entry key="SRH" value="Abhishek" />
+  	
+  </util:map>
+  
+  <util:properties id="myproperties">
+  	<prop key="01"> My Idol</prop>
+  	<prop key="02"> My Hit Man</prop>
+  </util:properties>
+  
+	<bean class="com.springcore.standalone.collections.Person" name="person">
+		<property name="cricketers" ref="mycricketers"/>
+		<property name="scores" ref="myscores"/>
+		<property name="teams" ref="myteams"/>
+		<property name="properties" ref="myproperties"/>
+	</bean>
+ 
+</beans>
